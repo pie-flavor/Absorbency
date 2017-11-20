@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '1.2.4'
+}
+
+group 'flavor.pie'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://repo.spongepowered.org/maven/'
+    }
+}
+
+configurations {
+    compile.extendsFrom shadow
+}
+
+dependencies {
+    compile group: 'org.spongepowered', name: 'spongeapi', version: '6.0.0'
+    shadow group: 'org.luaj', name: 'luaj-jse', version: '3.0.1'
+}
+
+sourceSets {
+    ldoc
+}
+
+jar.enabled = false
+build.dependsOn shadowJar
+
+shadowJar {
+    classifier = null
+    configurations = [project.configurations.shadow]
+}
+
+task ldoc << {
+    def p = "ldoc.lua .".execute(null, file('src/doc/lua'))
+    if (p.exitValue() != 0) {
+        throw new RuntimeException(p.getErr().readLines().join('\n'))
+    }
+}

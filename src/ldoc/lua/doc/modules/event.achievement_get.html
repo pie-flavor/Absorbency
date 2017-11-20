@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Sponge</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/chat.html">chat</a></li>
+  <li><a href="../modules/entity.html">entity</a></li>
+  <li><strong>event.achievement_get</strong></li>
+  <li><a href="../modules/event.html">event</a></li>
+  <li><a href="../modules/global.html">global</a></li>
+  <li><a href="../modules/util.html">util</a></li>
+  <li><a href="../modules/transaction.html">transaction</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>event.achievement_get</code></h1>
+<p>Fired when a player gets an achievement.</p>
+<p></p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#is_cancelled">is_cancelled (event)</a></td>
+	<td class="summary">Gets whether or not the event is cancelled.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#set_cancelled">set_cancelled (event, cancelled)</a></td>
+	<td class="summary">Sets whether or not the event is cancelled.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_message">get_message (event)</a></td>
+	<td class="summary">Gets the message to be used in the event.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#set_message">set_message (event, message)</a></td>
+	<td class="summary">Sets the message to be used in the event.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_player">get_player (event)</a></td>
+	<td class="summary">Gets the player involved in the event.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_channel">get_channel (event)</a></td>
+	<td class="summary">Gets the channel that the message will be sent to.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#set_channel">set_channel (event, channel)</a></td>
+	<td class="summary">Sets the channel that the message will be sent to.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_achievement">get_achievement (event)</a></td>
+	<td class="summary">Gets the achievement used.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "is_cancelled"></a>
+    <strong>is_cancelled (event)</strong>
+    </dt>
+    <dd>
+    Gets whether or not the event is cancelled.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">event</span>
+         the event
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        whether the event is cancelled
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "set_cancelled"></a>
+    <strong>set_cancelled (event, cancelled)</strong>
+    </dt>
+    <dd>
+    Sets whether or not the event is cancelled.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">event</span>
+         the event
+        </li>
+        <li><span class="parameter">cancelled</span>
+         whether the event is cancelled
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "get_message"></a>
+    <strong>get_message (event)</strong>
+    </dt>
+    <dd>
+    Gets the message to be used in the event.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">event</span>
+         the event
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        the message
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "set_message"></a>
+    <strong>set_message (event, message)</strong>
+    </dt>
+    <dd>
+    Sets the message to be used in the event.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">event</span>
+         the event
+        </li>
+        <li><span class="parameter">message</span>
+         the message, in a text table
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "get_player"></a>
+    <strong>get_player (event)</strong>
+    </dt>
+    <dd>
+    Gets the player involved in the event.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">event</span>
+         the event
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        the player
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/entity.html#">entity</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "get_channel"></a>
+    <strong>get_channel (event)</strong>
+    </dt>
+    <dd>
+    Gets the channel that the message will be sent to.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">event</span>
+         the event
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        the player
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/chat.html#">chat</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "set_channel"></a>
+    <strong>set_channel (event, channel)</strong>
+    </dt>
+    <dd>
+    Sets the channel that the message will be sent to.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">event</span>
+         the event
+        </li>
+        <li><span class="parameter">channel</span>
+         the channel
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/chat.html#">chat</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "get_achievement"></a>
+    <strong>get_achievement (event)</strong>
+    </dt>
+    <dd>
+    Gets the achievement used.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">event</span>
+         the event
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        the achievement
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2017-07-10 21:08:50 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

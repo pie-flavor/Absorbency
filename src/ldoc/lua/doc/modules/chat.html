@@ -1,0 +1,372 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Sponge</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Tables">Tables</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><strong>chat</strong></li>
+  <li><a href="../modules/entity.html">entity</a></li>
+  <li><a href="../modules/event.html">event</a></li>
+  <li><a href="../modules/global.html">global</a></li>
+  <li><a href="../modules/util.html">util</a></li>
+  <li><a href="../modules/transaction.html">transaction</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>chat</code></h1>
+<p>Functions for dealing with chat messages.</p>
+<p>
+ Any chat channels or message receivers are indexed to this module, allowing for methods.</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#send">send (target, message[, type='system'])</a></td>
+	<td class="summary">Sends a message to a chat channel or message receiver.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#send_from">send_from (target, sender, message[, type='system'])</a></td>
+	<td class="summary">Sends a message from a sender to a chat channel or message receiver.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#fixed">fixed (arg)</a></td>
+	<td class="summary">Creates a chat channel from some number of message receivers.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#combined">combined (arg)</a></td>
+	<td class="summary">Creates a chat channel from some number of other channels.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#permission">permission (permission)</a></td>
+	<td class="summary">Creates a chat channel for anyone with a given permission.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#world">world (world)</a></td>
+	<td class="summary">Creates a chat channel for anyone in a given world.</td>
+	</tr>
+</table>
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#all">all</a></td>
+	<td class="summary">A chat channel for all players plus the console.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#all_players">all_players</a></td>
+	<td class="summary">A chat channel for all players.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#console">console</a></td>
+	<td class="summary">A chat channel for the console.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#none">none</a></td>
+	<td class="summary">A chat channel for nobody.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "send"></a>
+    <strong>send (target, message[, type='system'])</strong>
+    </dt>
+    <dd>
+    Sends a message to a chat channel or message receiver.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">target</span>
+         the channel or receiver
+        </li>
+        <li><span class="parameter">message</span>
+         a text table
+        </li>
+        <li><span class="parameter">type</span>
+         the chat type (can be 'action_bar', 'chat', or 'system')
+         (<em>default</em> 'system')
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "send_from"></a>
+    <strong>send_from (target, sender, message[, type='system'])</strong>
+    </dt>
+    <dd>
+    Sends a message from a sender to a chat channel or message receiver.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">target</span>
+         the channel or receiver
+        </li>
+        <li><span class="parameter">sender</span>
+         the sender
+        </li>
+        <li><span class="parameter">message</span>
+         a text table
+        </li>
+        <li><span class="parameter">type</span>
+         the chat type (can be 'action_bar', 'chat', or 'system')
+         (<em>default</em> 'system')
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "fixed"></a>
+    <strong>fixed (arg)</strong>
+    </dt>
+    <dd>
+    Creates a chat channel from some number of message receivers.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">arg</span>
+         a vararg of either message receivers or tables of message receivers
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        the created channel
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "combined"></a>
+    <strong>combined (arg)</strong>
+    </dt>
+    <dd>
+    Creates a chat channel from some number of other channels.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">arg</span>
+         a vararg of either channels or tables of channels
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        the created channel
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "permission"></a>
+    <strong>permission (permission)</strong>
+    </dt>
+    <dd>
+    Creates a chat channel for anyone with a given permission.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">permission</span>
+         the permission to use
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        the created channel
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "world"></a>
+    <strong>world (world)</strong>
+    </dt>
+    <dd>
+    Creates a chat channel for anyone in a given world.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">world</span>
+         the world name, the world ID, a world, or world properties
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        the created channel
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "all"></a>
+    <strong>all</strong>
+    </dt>
+    <dd>
+    A chat channel for all players plus the console.
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">all</span>
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "all_players"></a>
+    <strong>all_players</strong>
+    </dt>
+    <dd>
+    A chat channel for all players.
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">all_players</span>
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "console"></a>
+    <strong>console</strong>
+    </dt>
+    <dd>
+    A chat channel for the console.
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">console</span>
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "none"></a>
+    <strong>none</strong>
+    </dt>
+    <dd>
+    A chat channel for nobody.
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">none</span>
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2017-07-10 21:38:29 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

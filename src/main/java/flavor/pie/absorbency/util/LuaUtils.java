@@ -12,12 +12,13 @@ import org.luaj.vm2.lib.jse.CoerceLuaToJava;
 import org.spongepowered.api.CatalogType;
 import org.spongepowered.api.Sponge;
 
-import java.nio.file.NoSuchFileException;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.function.Function;
+import java.util.stream.Collector;
 
 public class LuaUtils {
 
@@ -184,5 +185,33 @@ public class LuaUtils {
             index++;
         }
         return tbl;
+    }
+
+    public static void insertAtEnd(LuaTable table, LuaValue value) {
+        table.set(table.length() + 1, value);
+    }
+
+    public static LuaTable concatTables(LuaTable table, LuaTable table2) {
+        LuaTable res = LuaValue.tableOf();
+        for (Pair<LuaValue, LuaValue> pair : pairs(table)) {
+            res.set(pair.getKey(), pair.getValue());
+        }
+        for (Pair<LuaValue, LuaValue> pair : pairs(table2)) {
+            res.set(pair.getKey(), pair.getValue());
+        }
+        return res;
+    }
+
+    public static Collector<LuaValue, LuaTable, LuaTable> tableCollector() {
+        return Collector.of(LuaValue::tableOf, LuaUtils::insertAtEnd, LuaUtils::concatTables);
+    }
+
+    public static LuaTable makeTable(Collection<LuaValue> collection) {
+        LuaTable table = LuaValue.tableOf(collection.size(), 0);
+        int index = 0;
+        for (LuaValue value : collection) {
+            table.set(++index, value);
+        }
+        return table;
     }
 }

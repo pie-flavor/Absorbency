@@ -1,7 +1,9 @@
 package flavor.pie.absorbency.util;
 
+import com.flowpowered.math.vector.Vector3d;
 import com.google.common.collect.ImmutableMap;
 import org.apache.commons.lang3.tuple.Pair;
+import org.luaj.vm2.LuaClosure;
 import org.luaj.vm2.LuaError;
 import org.luaj.vm2.LuaString;
 import org.luaj.vm2.LuaTable;
@@ -18,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collector;
 
 public class LuaUtils {
@@ -213,5 +216,23 @@ public class LuaUtils {
             table.set(++index, value);
         }
         return table;
+    }
+
+    public static LuaTable makeUserdataTable(Collection<?> collection, LuaTable mt) {
+        LuaTable table = LuaValue.tableOf(collection.size(), 0);
+        int index = 0;
+        for (Object obj : collection) {
+            table.set(++index, LuaValue.userdataOf(obj, mt));
+        }
+        return table;
+    }
+
+    public static <T> Predicate<T> toPredicate(LuaClosure closure, Function<T, LuaValue> func) {
+        return t -> closure.call(func.apply(t)).checkboolean();
+    }
+
+    public static Varargs toVarargs(Vector3d vector) {
+        return LuaValue.varargsOf(new LuaValue[]{LuaValue.valueOf(vector.getX()), LuaValue.valueOf(vector.getY()),
+                LuaValue.valueOf(vector.getZ())});
     }
 }

@@ -14,6 +14,7 @@ import org.luaj.vm2.lib.jse.CoerceLuaToJava;
 import org.spongepowered.api.CatalogType;
 import org.spongepowered.api.Sponge;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -22,6 +23,8 @@ import java.util.NoSuchElementException;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 public class LuaUtils {
 
@@ -234,5 +237,17 @@ public class LuaUtils {
     public static Varargs toVarargs(Vector3d vector) {
         return LuaValue.varargsOf(new LuaValue[]{LuaValue.valueOf(vector.getX()), LuaValue.valueOf(vector.getY()),
                 LuaValue.valueOf(vector.getZ())});
+    }
+
+    public static Vector3d toVector3d(Varargs varargs) {
+        return Vector3d.from(varargs.arg1().checkdouble(), varargs.arg(2).checkdouble(),
+                varargs.arg(3).checkdouble());
+    }
+
+    public static Varargs concatVarargs(Varargs... varargs) {
+        LuaValue values[] = Arrays.stream(varargs)
+                .flatMap(v -> StreamSupport.stream(iterate(v).spliterator(), false))
+                .toArray(LuaValue[]::new);
+        return LuaValue.varargsOf(values);
     }
 }
